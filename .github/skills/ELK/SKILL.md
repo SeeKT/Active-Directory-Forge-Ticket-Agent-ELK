@@ -1,3 +1,16 @@
+<!-- SPDX-License-Identifier: MIT -->
+<!-- Copyright (c) 2026 ktod4ts -->
+<!-- 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+-->
+
 ---
 name: elk-skill
 description: "Elastic Stack を用いた Active Directory ログ分析・脅威検知支援スキル。Elasticsearch クエリ、Logstash パイプライン、Kibana 可視化を通じて、Windows イベントログおよび Sysmon ログの多角的な脅威検知を実現します。Active Directory 攻撃検知に最適化。Elasticsearch クエリ設計、Windows/AD 脅威検知、Logstash パイプライン、Kibana ダッシュボード、SIEM 運用保守をサポート。"
