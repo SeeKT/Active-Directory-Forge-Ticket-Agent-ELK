@@ -238,12 +238,27 @@ $response4_5.hits.hits | ForEach-Object {
 Write-Host ""
 Write-Host "[Export]" -ForegroundColor Cyan
 
+# Point 1: 4768 TGT
 $response1 | ConvertTo-Json -Depth 10 | Out-File -FilePath "$outputDir\01_4768_TGT_$timestamp.json" -Encoding UTF8
-$response2 | ConvertTo-Json -Depth 10 | Out-File -FilePath "$outputDir\02_4769_ST_$timestamp.json" -Encoding UTF8
-$response3_5 | ConvertTo-Json -Depth 10 | Out-File -FilePath "$outputDir\03_5_Rubeus_$timestamp.json" -Encoding UTF8
-$response4_5 | ConvertTo-Json -Depth 10 | Out-File -FilePath "$outputDir\04_5_4672_Priv_$timestamp.json" -Encoding UTF8
+$response1.hits.hits | Select-Object @{n='Timestamp'; e={$_._source.'@timestamp'}}, @{n='EventID'; e={$_._source.event.code}}, @{n='Computer'; e={$_._source.host.name}}, @{n='TargetUser'; e={$_._source.winlog.event_data.TargetUserName}}, @{n='SourceIP'; e={$_._source.source.ip}} | Export-Csv -Path "$outputDir\01_4768_TGT_$timestamp.csv" -Encoding UTF8 -NoTypeInformation
+Write-Host "  Point 1 (4768): JSON and CSV exported"
 
-Write-Host "  Exported to: $outputDir" -ForegroundColor Green
+# Point 2: 4769 ST
+$response2 | ConvertTo-Json -Depth 10 | Out-File -FilePath "$outputDir\02_4769_ST_$timestamp.json" -Encoding UTF8
+$response2.hits.hits | Select-Object @{n='Timestamp'; e={$_._source.'@timestamp'}}, @{n='EventID'; e={$_._source.event.code}}, @{n='Computer'; e={$_._source.host.name}}, @{n='TargetUser'; e={$_._source.winlog.event_data.TargetUserName}}, @{n='ServiceName'; e={$_._source.winlog.event_data.ServiceName}}, @{n='SourceIP'; e={$_._source.source.ip}} | Export-Csv -Path "$outputDir\02_4769_ST_$timestamp.csv" -Encoding UTF8 -NoTypeInformation
+Write-Host "  Point 2 (4769): JSON and CSV exported"
+
+# Point 3.5: Rubeus
+$response3_5 | ConvertTo-Json -Depth 10 | Out-File -FilePath "$outputDir\03_5_Rubeus_$timestamp.json" -Encoding UTF8
+$response3_5.hits.hits | Select-Object @{n='Timestamp'; e={$_._source.'@timestamp'}}, @{n='EventID'; e={$_._source.event.code}}, @{n='Computer'; e={$_._source.host.name}}, @{n='ProcessName'; e={$_._source.process.name}}, @{n='CommandLine'; e={$_._source.process.command_line}} | Export-Csv -Path "$outputDir\03_5_Rubeus_$timestamp.csv" -Encoding UTF8 -NoTypeInformation
+Write-Host "  Point 3.5 (Rubeus): JSON and CSV exported"
+
+# Point 4.5: Event 4672
+$response4_5 | ConvertTo-Json -Depth 10 | Out-File -FilePath "$outputDir\04_5_4672_Priv_$timestamp.json" -Encoding UTF8
+$response4_5.hits.hits | Select-Object @{n='Timestamp'; e={$_._source.'@timestamp'}}, @{n='EventID'; e={$_._source.event.code}}, @{n='Computer'; e={$_._source.host.name}}, @{n='User'; e={$_._source.user.name}}, @{n='Domain'; e={$_._source.user.domain}}, @{n='PrivilegeCount'; e={$_._source.winlog.event_data.PrivilegeList.Count}} | Export-Csv -Path "$outputDir\04_5_4672_Priv_$timestamp.csv" -Encoding UTF8 -NoTypeInformation
+Write-Host "  Point 4.5 (4672): JSON and CSV exported"
+
+Write-Host "  Output directory: $outputDir" -ForegroundColor Green
 
 # ============================================================
 # Verdict
