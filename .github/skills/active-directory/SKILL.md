@@ -1,16 +1,3 @@
-<!-- SPDX-License-Identifier: MIT -->
-<!-- Copyright (c) 2026 ktod4ts -->
-<!-- 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
--->
-
 ---
 name: active-directory-skill
 description: "Active Directory 攻撃・検知に関する包括的な知識スキル。Kerberos 認証プロトコル、権限昇格、ドメイン間信頼悪用、LDAP 攻撃、Windows ログ分析による脅威検知など、AD セキュリティの多岐にわたるトピックをカバーしています。ELKと統合し、IT セキュリティの基盤を提供。認証フロー、権限昇格経路、永続化技術、ドメイン間信頼悪用、ログ分析検知、LDAP 操作、防御戦略の 8 つの主要機能をサポートします。"
