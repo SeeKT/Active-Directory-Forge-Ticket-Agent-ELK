@@ -53,7 +53,7 @@ ELK (主に Kibana) を活用して、どのような攻撃をされた可能性
 ```
 
 #### 利用例3: 詳細分析 (インシデントタイムラインの作成)
-出力されたログを添付して以下のようなプロンプトを送る。
+出力されたログ (JSON) を添付して以下のようなプロンプトを送る。
 
 ```
 これらの情報をもとに、インシデントのタイムラインを整理してほしい
@@ -61,14 +61,21 @@ ELK (主に Kibana) を活用して、どのような攻撃をされた可能性
 
 
 ## ログ分析
-Forge Tickets のログ分析を行うスクリプトを作成。
+Forge Tickets のログ分析を行うスクリプトをバイブコーディングしながら作成
 
 - [GoldenTicket-Minimal.ps1](scripts/GoldenTicket-Minimal.ps1): Golden Ticket 分析用
+- [SilverTicket-Minimal.ps1](scripts/SilverTicket-Minimal.ps1): Silver Ticket 分析用
 
 ### Golden Ticket 分析用
 ```
 PS> powershell -ExecutionPolicy Bypass .\GoldenTicket-Minimal.ps1
 ```
+
+### Silver Ticket 分析用
+```
+PS> powershell -ExecutionPolicy Bypass .\SilverTicket-Minimal.ps1
+```
+
 
 ## License
 
