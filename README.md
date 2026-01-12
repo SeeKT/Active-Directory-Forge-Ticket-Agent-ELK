@@ -65,6 +65,7 @@ Forge Tickets のログ分析を行うスクリプトをバイブコーディン
 
 - [GoldenTicket-Minimal.ps1](scripts/GoldenTicket-Minimal.ps1): Golden Ticket 分析用
 - [SilverTicket-Minimal.ps1](scripts/SilverTicket-Minimal.ps1): Silver Ticket 分析用
+- [DiamondTicket-Minimal.ps1](scripts/DiamondTicket-Minimal.ps1): Diamond Ticket 分析用
 
 ### Golden Ticket 分析用
 ```
@@ -76,6 +77,10 @@ PS> powershell -ExecutionPolicy Bypass .\GoldenTicket-Minimal.ps1
 PS> powershell -ExecutionPolicy Bypass .\SilverTicket-Minimal.ps1
 ```
 
+### Diamond Ticket 分析用
+```
+PS> powershell -ExecutionPolicy Bypass .\DiamondTicket-Minimal.ps1
+```
 
 ## License
 
