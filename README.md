@@ -88,6 +88,11 @@ PS> powershell -ExecutionPolicy Bypass .\DiamondTicket-Minimal.ps1
 PS> powershell -ExecutionPolicy Bypass .\SapphireTicket-Minimal.ps1
 ```
 
+## ダッシュボード
+Kibana 用ダッシュボードを作成 ([Kerberos_Ticket_Forgery_Detection_Complete.ndjson](dashboard/Kerberos_Ticket_Forgery_Detection_Complete.ndjson))。
+
+Kibana の Stack Management > Kibana > Saved Objects で Import をクリックし、この `ndjson` ファイルをアップロードすることで、同様のダッシュボードを再現できる。
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
